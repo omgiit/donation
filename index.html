@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OMGIIT Donation Appeal - Support digital education, skill development and empowerment of students with disabilities.">
+  <meta name="theme-color" content="#0f766e">
+  <title>Donation Appeal | OMGIIT</title>
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --accent: #f59e0b;
+      --navy: #0f172a;
+      --muted: #64748b;
+      --surface: #ffffff;
+      --surface-soft: #f0fdfa;
+      --border: #dbe7e5;
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #e2e8f0;
+      padding: 9px 20px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    header {
+      background-color: #a0c9c4;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+header img{
+    width:100px;
+    margin-bottom:10px;
+  }
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 20px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), #14b8a6);
+      box-shadow: 0 10px 22px rgba(15,118,110,.22);
+    }
+    .brand strong { display: block; font-size: 15px; letter-spacing: .2px; }
+    .brand span { display: block; color: var(--muted); font-size: 12px; }
+
+    nav a {
+      color: #334155;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    nav a:hover { color: var(--primary); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background-image: url("PwD1.jpg");
+      display: flex;
+      background-repeat: no-repeat;
+      color: rgb(255, 255, 255);
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(222, 198, 198, 0.07);
+      pointer-events: none;
+    }
+    .hero::before { width: 420px; height: 420px; right: -130px; top: -180px; }
+    .hero::after { width: 300px; height: 300px; left: -150px; bottom: -180px; }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 78px 20px 86px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.10);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin: 20px 0;
+      max-width: 760px;
+    }
+    .hero p { font-size: 18px; color: #d7fffb; max-width: 720px; margin: 0 0 28px; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-light { background: white; color: var(--primary-dark); box-shadow: 0 12px 30px rgba(0,0,0,.15); }
+    .btn-outline { color: white; border-color: rgba(255,255,255,.38); background: rgba(255,255,255,.07); }
+
+    .hero-card {
+      background: rgb(255, 255, 255);
+      color: var(--navy);
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card .icon { font-size: 40px; }
+    .hero-card h3 { margin: 10px 0 6px; font-size: 22px; }
+    .hero-card p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+    .mini-stat { display: flex; gap: 12px; align-items: center; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .mini-stat b { color: var(--primary); }
+
+    section { padding: 78px 20px; }
+    .container { max-width: 1180px; margin: auto; }
+    .section-heading { max-width: 740px; margin-bottom: 34px; }
+    .section-heading .kicker { color: var(--primary); font-weight: 900; text-transform: uppercase; font-size: 12px; letter-spacing: .12em; }
+    h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -1px; margin: 8px 0 12px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+
+    .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .support-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15,23,42,.05);
+    }
+    .support-card .emoji { font-size: 30px; }
+    .support-card h3 { margin: 12px 0 6px; font-size: 18px; }
+    .support-card p { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .appeal { background: var(--surface-soft); }
+    .appeal-box {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 34px;
+      align-items: stretch;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .appeal-copy p { color: #475569; }
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding: 12px 0 12px 18px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 24px;
+    }
+
+    .donation { background: #fff; }
+    .donation-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 28px; align-items: start; }
+    .qr-card, .bank-card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(15,23,42,.06);
+    }
+    .qr-card { padding: 28px; text-align: center; background: linear-gradient(180deg, #f0fdfa, #fff); }
+    .qr-placeholder {
+      width: min(260px, 100%);
+      aspect-ratio: 1;
+      margin: 10px auto 18px;
+      border: 2px dashed #99d7d1;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: repeating-linear-gradient(45deg, #ffffff, #ffffff 8px, #f1f5f9 8px, #f1f5f9 16px);
+    }
+   .qr-card img{
+    width:190px;
+    margin-bottom:10px;
+  }
+    .bank-card { padding: 28px; }
+    .bank-card h3 { margin-top: 0; }
+    .bank-row { display: grid; grid-template-columns: 150px 1fr auto; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid #edf2f2; }
+    .bank-row:last-of-type { border-bottom: 0; }
+    .bank-row label { color: var(--muted); font-size: 13px; font-weight: 700; }
+    .bank-row strong { word-break: break-word; }
+    .copy-btn { border: 1px solid var(--border); background: #f8fafc; border-radius: 8px; padding: 7px 10px; cursor: pointer; font-weight: 700; color: var(--primary-dark); }
+    .copy-btn:hover { background: #ecfdf5; }
+    .note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+    .cta {
+      background: linear-gradient(135deg, #0f172a, #134e4a);
+      color: white;
+      text-align: center;
+    }
+    .cta p { color: #cbd5e1; max-width: 650px; margin: 0 auto 26px; }
+
+    footer { background: #020617; color: #cbd5e1; padding: 28px 20px; }
+    .footer-inner { max-width: 1180px; margin: auto; display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+    footer strong { color: white; }
+    .small { font-size: 12px; }
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #0f172a;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: .25s ease;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 860px) {
+      nav { display: none; }
+      .hero-inner, .appeal-box, .donation-grid { grid-template-columns: 1fr; }
+      .hero-inner { padding-top: 58px; }
+      .support-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      section { padding: 58px 16px; }
+      .nav { padding: 10px 16px; }
+      .brand strong { font-size: 13px; }
+      .brand span { font-size: 11px; }
+      h1 { letter-spacing: -1.5px; }
+      .hero p { font-size: 16px; }
+      .support-grid { grid-template-columns: 1fr; }
+      .appeal-box, .bank-card, .qr-card { padding: 22px; }
+      .bank-row { grid-template-columns: 1fr; gap: 5px; }
+      .copy-btn { width: fit-content; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    footer img{
+    width:100px;
+    margin-bottom:10px;
+  }
+
+    @media print {
+      header, .buttons, .cta, .topbar { display: none !important; }
+      body { background: white; }
+      section { padding: 28px 0; }
+      .hero { color: black; background: white; }
+      .hero-card { box-shadow: none; border: 1px solid #ddd; }
+      .hero p { color: #475569; }
+      footer { color: #334155; background: white; border-top: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Inclusive Digital Education • Skill Development • Empowerment</div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home" aria-label="OMGIIT home">
+        <img src="omgiit.png" alt="OMGIIT Logo">
+        <div>
+          <strong>OMM GANAPATI INSTITUTE OF <br>INFORMATION TECHNOLOGY</strong>
+          <span>Computer Training Institute</span>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="https://omgiit-org.github.io/in/">Organisation</a>
+        <a href="#donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">♿ Donation Appeal • PwD Student Development</div>
+          <h1>Help Make Digital Education Accessible to Everyone.</h1>
+          <p>Support OMGIIT in providing computer education, digital skills and employment-oriented training to Persons with Disabilities and students from disadvantaged backgrounds.</p>
+          <div class="buttons">
+            <a class="btn btn-light" href="#donate">♥ Donate Now</a>
+            <a class="btn btn-outline" href="#support">See How Your Support Helps</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Donation impact">
+          <div class="icon"></div>
+          <h3>Your Support Can Make a Difference</h3>
+          <p>Even a small contribution can help a student gain valuable digital skills and move towards a more independent, confident and dignified future.</p>
+          <div class="mini-stat"><span>🎓</span><div><b>Skill Development</b><br><span>Training • Materials • Certification</span></div></div>
+          <div class="mini-stat"><span>💼</span><div><b>Future Opportunities</b><br><span>Employment &amp; self-employment skills</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="kicker">Our Initiative</div>
+          <h2>Building skills. Creating opportunity. Empowering lives.</h2>
+          <p>OMGIIT is committed to quality computer education, digital skills and employment-oriented training, with an emphasis on inclusive learning and the empowerment of Persons with Disabilities.</p>
+        </div>
+        <div class="appeal-box">
+          <div class="appeal-copy">
+            <p>As part of our social responsibility and inclusive education initiative, we are working towards the skill development and empowerment of Persons with Disabilities by providing accessible computer training and opportunities to become self-reliant.</p>
+            <p>We kindly request individuals, institutions and organizations to extend financial support towards this meaningful initiative.</p>
+            <div class="quote">“Together, let us build an inclusive digital future.”</div>
+          </div>
+          <div>
+            <div class="support-card" style="height:100%;">
+              <div class="emoji">🌱</div>
+              <h3>Inclusive Growth</h3>
+              <p>Your contribution can help reduce barriers to digital learning and create practical opportunities for students with disabilities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="appeal">
+      <div class="container">
+        <div class="section-heading">
+          <div class="kicker">Where Your Support Helps</div>
+          <h2>Every contribution supports practical learning.</h2>
+          <p>Financial support may contribute towards the following educational and development needs.</p>
+        </div>
+        <div class="support-grid">
+          <article class="support-card"><div class="emoji">💻</div><h3>Computer &amp; Digital Skills</h3><p>Practical computer literacy and digital skills training.</p></article>
+          <article class="support-card"><div class="emoji">📚</div><h3>Learning Materials</h3><p>Educational resources and training materials for learners.</p></article>
+          <article class="support-card"><div class="emoji">♿</div><h3>Accessible Facilities</h3><p>Support for an inclusive and accessible learning environment.</p></article>
+          <article class="support-card"><div class="emoji">🎓</div><h3>Skill Development</h3><p>Career-oriented training and certification support.</p></article>
+          <article class="support-card"><div class="emoji">💼</div><h3>Employment Skills</h3><p>Employability and self-employment-oriented digital skills.</p></article>
+          <article class="support-card"><div class="emoji">🤝</div><h3>Confidence &amp; Independence</h3><p>Helping learners build confidence, independence and social participation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="donate" class="donation">
+      <div class="container">
+        <div class="section-heading">
+          <div class="kicker">Make a Contribution</div>
+          <h2>Support the initiative today.</h2>
+          <p>Use the official bank details below. If you have an official UPI QR image, replace the QR placeholder with your QR code before publishing.</p>
+        </div>
+
+        <div class="donation-grid">
+          <div class="qr-card">
+            <h3>UPI / QR Donation</h3>
+           <img src="QR.jpeg" alt="OMGIIT Logo">
+            <p class="small">Please verify the recipient name before making a digital payment.</p>
+          </div>
+
+          <div class="bank-card">
+            <h3>Bank Transfer Details</h3>
+            <div class="bank-row"><label>Bank Name</label><strong>Axis Bank</strong><span></span></div>
+            <div class="bank-row"><label>Account Holder</label><strong>OMGIIT</strong><button class="copy-btn" data-copy="OMGIIT">Copy</button></div>
+            <div class="bank-row"><label>Account Number</label><strong id="accountNumber">920020061730628</strong><button class="copy-btn" data-copy="920020061730628">Copy</button></div>
+            <div class="bank-row"><label>IFSC Code</label><strong id="ifsc">UTIB0001805</strong><button class="copy-btn" data-copy="UTIB0001805">Copy</button></div>
+            <div class="bank-row"><label>Account Type</label><strong>Current A/c</strong><span></span></div>
+            <p class="note"><strong>Donation purpose:</strong> Development, digital education and skill training support for Persons with Disabilities students.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Let Us Create Opportunities Together.</h2>
+        <p>Your support can help make quality digital education more accessible to students with disabilities and help them move towards a skilled and self-reliant future.</p>
+        <a class="btn btn-light" href="#donate">♥ Support OMGIIT</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+     
+      <div><strong>OMM GANAPATI INSTITUTE OF <br>INFORMATION & TECHNOLOGY</strong><br><span class="small">Computer Training Institute</span></div>
+       <img src="omgiit.png" alt="OMGIIT Logo">
+      <div class="small">© <span id="year"></span> OMGIIT • Donation Appeal <br>Developed By: Mr. Dharanidhara Rana <br>Person with Disability
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied!</div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+    document.querySelectorAll('[data-copy]').forEach(button => {
+      button.addEventListener('click', async () => {
+        const value = button.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(value);
+          showToast('Copied to clipboard');
+        } catch (e) {
+          showToast(value);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
